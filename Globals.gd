@@ -1,6 +1,6 @@
 extends Node
 
-const UNIT_SIZE = 24
+const UNIT_SIZE = 16
 const PLAYER_JUMP_HEIGHT = -3.75 * UNIT_SIZE
 const PLAYER_JUMP_DURATION = 0.35
 

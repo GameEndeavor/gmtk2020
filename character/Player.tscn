@@ -11,6 +11,7 @@ extents = Vector2( 8, 12 )
 extents = Vector2( 8, 12 )
 
 [node name="Player" instance=ExtResource( 1 )]
+collision_layer = 0
 script = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Body" index="0"]
