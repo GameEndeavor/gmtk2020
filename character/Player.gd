@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 const MOVE_SPEED = 8.0 * 24
 
-var jump_velocity = PhysicsHelper.calculate_velocity_from_height(Globals.PLAYER_JUMP_HEIGHT)
+onready var jump_velocity = PhysicsHelper.calculate_velocity_from_height(-Globals.PLAYER_JUMP_HEIGHT)
 var velocity := Vector2()
 var is_grounded = false
 
