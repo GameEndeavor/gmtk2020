@@ -27,9 +27,11 @@ func _state_logic(delta):
 			parent._update_input()
 			parent._update_h_velocity()
 			parent._apply_gravity()
+			parent._handle_destruction()
 			parent._apply_movement()
 		states.hooked:
 			parent._update_hooked_velocity()
+			parent._handle_destruction()
 			parent._apply_movement()
 
 func _get_transition(delta):

@@ -10,6 +10,7 @@ onready var collision = $CollisionShape2D
 onready var mouth = $Body/Mouth
 onready var state_machine = $StateMachine
 onready var animation_player = $AnimationPlayer
+onready var destruction_area = $DestructionArea
 
 onready var jump_velocity = PhysicsHelper.calculate_velocity_from_height(-Globals.PLAYER_JUMP_HEIGHT)
 var velocity := Vector2()
@@ -67,6 +68,12 @@ func _apply_movement():
 	var snap = Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP, true)
 	is_grounded = is_on_floor()
+
+func _handle_destruction():
+	var areas = destruction_area.get_overlapping_areas()
+	for area in areas:
+		if area is DestructableArea:
+			area.on_collision(self, velocity)
 
 func get_move_weight():
 	if is_grounded:
