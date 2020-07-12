@@ -1,0 +1,22 @@
+[gd_scene format=2]
+
+[node name="Victory" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="ColorRect/CenterContainer"]
+margin_left = 296.0
+margin_top = 173.0
+margin_right = 344.0
+margin_bottom = 187.0
+text = "Victory!"

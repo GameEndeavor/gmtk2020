@@ -12,7 +12,7 @@ position = Vector2( 0, -8 )
 texture = ExtResource( 2 )
 
 [node name="DestructableArea" parent="." index="1"]
-break_resistance = 3
+break_resistance = 4
 
 [node name="CollisionShape2D" parent="DestructableArea" index="0"]
 position = Vector2( 0, -8 )
