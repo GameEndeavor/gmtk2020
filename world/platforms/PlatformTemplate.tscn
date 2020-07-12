@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://art/tileset/GrassTileset/tileset_GrassTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://art/tileset/BackgroundDetailTileset.tres" type="TileSet" id=2]
 
 [node name="Platform" type="Node2D"]
 
@@ -8,4 +9,9 @@
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 47, 196608, 1, 47, 196609, 2, 47, 196609, 3, 47, 196609, 4, 47, 196610 )
+
+[node name="Background" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
