@@ -13,6 +13,8 @@ onready var mouth = $Body/Mouth
 onready var state_machine = $StateMachine
 onready var animation_player = $AnimationPlayer
 onready var destruction_area = $DestructionArea
+onready var lick_audio = $LickAudio
+onready var death_audio = $DeathAudio
 
 onready var jump_velocity = PhysicsHelper.calculate_velocity_from_height(-Globals.PLAYER_JUMP_HEIGHT)
 var velocity := Vector2()
@@ -53,7 +55,7 @@ func _update_merry_go_frog_velocity():
 	var desired_position = tongue.tip.global_position - polar2cartesian(displacement.length() \
 			+ retraction_delta, desired_angle)
 	velocity = (desired_position - mouth.global_position) / delta
-	
+
 
 func _update_hook_retract_velocity():
 	var delta = get_physics_process_delta_time()
@@ -72,6 +74,7 @@ func _apply_movement():
 	is_grounded = is_on_floor()
 	if is_alive && global_position.y > 250:
 		is_alive = false
+		death_audio.play()
 		emit_signal("killed")
 
 func _handle_destruction():
@@ -96,6 +99,7 @@ func jump():
 
 func lick():
 	if !is_licking:
+		lick_audio.play()
 		tongue = preload("res://character/Tongue.tscn").instance()
 		mouth.add_child(tongue)
 		tongue.launch((get_global_mouse_position() - mouth.global_position).normalized())
@@ -118,13 +122,13 @@ func _on_tongue_hooked():
 	var body = tongue.raycast.get_collider()
 #	if body is Anchor:
 #		var displacement = body.global_position - mouth.global_position
-		
+
 	pass
 
 func set_is_licking(value):
 	is_licking = value
 	state_machine.update_animation()
-#	if value: 
+#	if value:
 #		Engine.time_scale = 0.1
 #	else:
 #		Engine.time_scale = 1.0
