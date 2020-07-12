@@ -8,7 +8,7 @@
 
 [node name="Anchor" parent="Entities" index="1" instance=ExtResource( 2 )]
 position = Vector2( 112, -80 )
-type = 1
+direction = 1
 
 [node name="Pot" parent="Entities" index="2" instance=ExtResource( 3 )]
 position = Vector2( 64, 0 )

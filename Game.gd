@@ -6,13 +6,14 @@ const LEVELS = [
 ]
 
 onready var transition_animator = $HUDLayer/Interface/TransitionEffects/TransitionAnimator
+onready var hud = $HUDLayer
 
 var level = null
 var level_idx = 0
 
 func _ready():
 	Globals.game = self
-	load_level(0)
+	Globals.connect("score_updated", hud, "set_score")
 
 func next_level():
 	var idx = level_idx + 1
