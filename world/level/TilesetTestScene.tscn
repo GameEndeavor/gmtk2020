@@ -1,76 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://art/tileset/GrassTileset/tileset_GrassTileset.tres" type="TileSet" id=1]
-[ext_resource path="res://art/tileset/TilesetProps.png" type="Texture" id=2]
+[ext_resource path="res://art/tileset/BackgroundDetailTileset.tres" type="TileSet" id=2]
 [ext_resource path="res://art/backgrounds/cloud_bg.png" type="Texture" id=3]
 [ext_resource path="res://world/Anchor.tscn" type="PackedScene" id=4]
 [ext_resource path="res://art/tileset/DirtBGTileset/DirtBG/tileset_DirtBG.tres" type="TileSet" id=5]
 [ext_resource path="res://art/destructibles/Sword.png" type="Texture" id=6]
-
-[sub_resource type="TileSet" id=1]
-0/name = "TilesetProps.png 0"
-0/texture = ExtResource( 2 )
-0/tex_offset = Vector2( 0, 0 )
-0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 128, 48 )
-0/tile_mode = 2
-0/autotile/icon_coordinate = Vector2( 0, 0 )
-0/autotile/tile_size = Vector2( 16, 16 )
-0/autotile/spacing = 0
-0/autotile/occluder_map = [  ]
-0/autotile/navpoly_map = [  ]
-0/autotile/priority_map = [  ]
-0/autotile/z_index_map = [  ]
-0/occluder_offset = Vector2( 0, 0 )
-0/navigation_offset = Vector2( 0, 0 )
-0/shape_offset = Vector2( 0, 0 )
-0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape_one_way = false
-0/shape_one_way_margin = 0.0
-0/shapes = [  ]
-0/z_index = 0
-1/name = "its a tree"
-1/texture = ExtResource( 2 )
-1/tex_offset = Vector2( 0, 0 )
-1/modulate = Color( 1, 1, 1, 1 )
-1/region = Rect2( 0, 48, 64, 80 )
-1/tile_mode = 0
-1/occluder_offset = Vector2( 0, 0 )
-1/navigation_offset = Vector2( 0, 0 )
-1/shape_offset = Vector2( 0, 0 )
-1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-1/shape_one_way = false
-1/shape_one_way_margin = 0.0
-1/shapes = [  ]
-1/z_index = 0
-2/name = "bush"
-2/texture = ExtResource( 2 )
-2/tex_offset = Vector2( 0, 0 )
-2/modulate = Color( 1, 1, 1, 1 )
-2/region = Rect2( 64, 96, 48, 32 )
-2/tile_mode = 0
-2/occluder_offset = Vector2( 0, 0 )
-2/navigation_offset = Vector2( 0, 0 )
-2/shape_offset = Vector2( 0, 0 )
-2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-2/shape_one_way = false
-2/shape_one_way_margin = 0.0
-2/shapes = [  ]
-2/z_index = 0
-3/name = "FrogStatue"
-3/texture = ExtResource( 2 )
-3/tex_offset = Vector2( 0, 0 )
-3/modulate = Color( 1, 1, 1, 1 )
-3/region = Rect2( 112, 96, 16, 32 )
-3/tile_mode = 0
-3/occluder_offset = Vector2( 0, 0 )
-3/navigation_offset = Vector2( 0, 0 )
-3/shape_offset = Vector2( 0, 0 )
-3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-3/shape_one_way = false
-3/shape_one_way_margin = 0.0
-3/shapes = [  ]
-3/z_index = 0
 
 [node name="Node2D" type="Node2D"]
 
@@ -86,7 +21,7 @@ tile_data = PoolIntArray( 15, 47, 0, 16, 47, 1, 17, 47, 2, 24, 47, 3, 65551, 47,
 
 [node name="Background" type="TileMap" parent="."]
 z_index = -1
-tile_set = SubResource( 1 )
+tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -196588, 0, 0, -196585, 0, 3, -131056, 0, 1, 34, 1, 0, 196637, 0, 131073, 262173, 0, 131072, 262176, 3, 0, 327682, 0, 2, 327709, 0, 131072, 393225, 0, 1, 393243, 0, 2, 393244, 0, 0, 393245, 0, 131072, 393246, 0, 5, 393283, 0, 131072, 458763, 0, 4, 458764, 0, 1, 458770, 2, 0, 458819, 0, 131072, 524303, 0, 3, 524305, 0, 0, 524308, 0, 0, 524309, 0, 6, 524310, 0, 7, 524313, 0, 131079, 524346, 2, 0, 524355, 0, 131072, 589874, 2, 0, 589891, 0, 131072, 589895, 0, 131072, 655427, 0, 131072, 655431, 0, 131072, 917534, 0, 131073, 983070, 0, 131072, 1048606, 0, 131072 )
