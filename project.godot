@@ -51,7 +51,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK2020"
-run/main_scene="res://Game.tscn"
+run/main_scene="res://world/level/Level.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -128,9 +128,7 @@ lick={
 2d_physics/layer_1="obstacles"
 2d_physics/layer_5="anchors"
 2d_physics/layer_6="characters"
-2d_physics/layer_10="destructables"
 
 [rendering]
 
-environment/default_clear_color=Color( 0, 0.780392, 0.996078, 1 )
 environment/default_environment="res://default_env.tres"
