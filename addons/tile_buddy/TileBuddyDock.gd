@@ -62,7 +62,7 @@ func _generate_tile(coord : Vector2, input_image : Image, output_image : Image, 
 		index_offset.x = 0 if i % 2 == 0 else 1
 		index_offset.y = 0 if i < 2 else 1
 		var corner_offset = (index_offset * (tile_size / 2.0))
-		
+
 		# Find the texture position to use for this subtile
 		# TODO: Note which conditions handle which tiles and how logic works
 		var src_rect = Rect2(Vector2.ZERO, tile_size / 2.0)
