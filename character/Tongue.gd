@@ -20,6 +20,7 @@ var state = States.EXTEND
 
 func _ready():
 	tip.set_as_toplevel(true)
+	raycast.set_as_toplevel(true)
 
 func _physics_process(delta):
 	match state:
@@ -32,6 +33,7 @@ func _physics_process(delta):
 func extend():
 	var delta = get_physics_process_delta_time()
 	tip.position += velocity * delta
+	raycast.global_position = global_position
 	raycast.cast_to = (tip.global_position - global_position)
 	raycast.force_raycast_update()
 	if raycast.is_colliding():

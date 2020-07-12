@@ -33,6 +33,13 @@ func _update_h_velocity():
 	velocity.x = lerp(velocity.x, move_input * MOVE_SPEED, get_move_weight())
 
 func _update_hooked_velocity():
+	match tongue.get_anchor().type:
+		Anchor.Types.MERRY:
+			_update_merry_go_frog_velocity()
+		Anchor.Types.PULL:
+			_update_hook_retract_velocity()
+
+func _update_merry_go_frog_velocity():
 	var delta = get_physics_process_delta_time()
 	var displacement = tongue.tip.global_position - mouth.global_position
 	var angle = displacement.angle()
@@ -62,7 +69,15 @@ func _apply_movement():
 	is_grounded = is_on_floor()
 
 func get_move_weight():
-	return 0.3 if is_grounded else 0.05
+	if is_grounded:
+		return 0.2
+	else:
+		if move_input == 0:
+			return 0.02
+		elif move_input == sign(velocity.x) && abs(velocity.x) > MOVE_SPEED:
+			return 0.0
+		else:
+			return 0.1
 
 func jump():
 	velocity.y = jump_velocity
@@ -97,3 +112,13 @@ func _on_tongue_hooked():
 func set_is_licking(value):
 	is_licking = value
 	state_machine.update_animation()
+#	if value: 
+#		Engine.time_scale = 0.1
+#	else:
+#		Engine.time_scale = 1.0
+
+func should_release() -> bool:
+	if tongue.get_anchor().type == Anchor.Types.PULL:
+		return true if tongue.get_length() < 2 * 16 else false
+	else:
+		return false

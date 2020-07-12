@@ -45,7 +45,7 @@ _global_script_class_icons={
 [application]
 
 config/name="GMTK2020"
-run/main_scene="res://world/level/Level.tscn"
+run/main_scene="res://world/level/levels/DebugLevel.tscn"
 config/icon="res://icon.png"
 
 [autoload]

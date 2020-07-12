@@ -15,7 +15,6 @@ func _unhandled_input(event):
 		if [states.idle, states.run].has(state):
 			parent.jump()
 		elif state == states.hooked:
-			parent.remove_tongue()
 			set_state(states.fall)
 		
 	if event.is_action_pressed("lick"):
@@ -31,7 +30,6 @@ func _state_logic(delta):
 			parent._apply_movement()
 		states.hooked:
 			parent._update_hooked_velocity()
-#			parent._update_hook_retract_velocity()
 			parent._apply_movement()
 
 func _get_transition(delta):
@@ -66,12 +64,17 @@ func _get_transition(delta):
 			else:
 				if parent.velocity.y < 0:
 					return states.jump
+		states.hooked:
+			if parent.should_release():
+				return states.fall
 
 func _enter_state(new_state, old_state):
 	update_animation()
 
 func _exit_state(old_state, new_state):
-	pass
+	match old_state:
+		states.hooked:
+			parent.remove_tongue()
 
 func _on_Player_hooked():
 	set_state(states.hooked)
