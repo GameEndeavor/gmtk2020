@@ -9,6 +9,8 @@ const PLATFORM_SCENES = [
 	preload("res://world/platforms/Platform6.tscn"),
 	preload("res://world/platforms/Platform7.tscn"),
 	preload("res://world/platforms/Platform8.tscn"),
+	preload("res://world/platforms/Platform9.tscn"),
+	preload("res://world/platforms/GEPlatform1.tscn"),
 ]
 
 var platform_pool = []
