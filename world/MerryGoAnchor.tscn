@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://world/Anchor.tscn" type="PackedScene" id=1]
+
+[node name="MerryGoAnchor" instance=ExtResource( 1 )]
+direction = 1
