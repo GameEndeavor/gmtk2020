@@ -40,4 +40,5 @@ func load_level(idx):
 
 func restart():
 	load_level(0)
+	Globals.score = 0
 	hud.update_score(0)
