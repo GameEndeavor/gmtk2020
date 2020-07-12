@@ -20,6 +20,10 @@ var prev_platform = null
 func _ready():
 	gen_platforms()
 	make_spawner_platform()
+	call_deferred("make_connections")
+
+func make_connections():
+	$Entities/Player.connect("killed", Globals.game, "restart")
 
 func gen_platforms():
 	for i in 3:

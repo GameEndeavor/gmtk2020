@@ -1,8 +1,9 @@
 extends Node2D
 
 const LEVELS = [
-	preload("res://world/level/levels/BreakingFree.tscn"),
-	preload("res://world/level/levels/Victory.tscn"),
+	preload("res://world/RunnerLevel.tscn"),
+#	preload("res://world/level/levels/BreakingFree.tscn"),
+#	preload("res://world/level/levels/Victory.tscn"),
 ]
 
 onready var transition_animator = $HUDLayer/Interface/TransitionEffects/TransitionAnimator
@@ -12,8 +13,10 @@ var level = null
 var level_idx = 0
 
 func _ready():
+	randomize()
 	Globals.game = self
 	Globals.connect("score_updated", hud, "set_score")
+	load_level(0)
 
 func next_level():
 	var idx = level_idx + 1
@@ -34,3 +37,6 @@ func load_level(idx):
 	
 	transition_animator.play_backwards("fade_black")
 	yield(transition_animator, "animation_finished")
+
+func restart():
+	load_level(0)

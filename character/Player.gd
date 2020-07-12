@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal killed()
+
 const MOVE_SPEED = 10.0 * 16
 const HOOK_SPEED = 32.0 * 16
 const HOOK_ROTATION_SPEED = -PI * 1.5
@@ -22,7 +24,7 @@ var rotation_factor = 0.2
 var rotation_direction = 1
 var retraction_speed = 1.0 * 16
 var facing = 1
-	
+var is_alive = true
 
 func _update_input():
 	move_input = -Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
@@ -68,6 +70,9 @@ func _apply_movement():
 	var snap = Vector2.ZERO
 	velocity = move_and_slide_with_snap(velocity, snap, Vector2.UP, true)
 	is_grounded = is_on_floor()
+	if is_alive && global_position.y > 250:
+		is_alive = false
+		emit_signal("killed")
 
 func _handle_destruction():
 	var areas = destruction_area.get_overlapping_areas()
