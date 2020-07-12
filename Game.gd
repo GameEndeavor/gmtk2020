@@ -15,7 +15,7 @@ var level_idx = 0
 func _ready():
 	randomize()
 	Globals.game = self
-	Globals.connect("score_updated", hud, "set_score")
+	Globals.connect("score_updated", hud, "update_score")
 	load_level(0)
 
 func next_level():
@@ -40,3 +40,4 @@ func load_level(idx):
 
 func restart():
 	load_level(0)
+	hud.update_score(0)

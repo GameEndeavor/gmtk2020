@@ -46,7 +46,7 @@ func make_spawner_platform():
 func spawn_platform():
 	var idx = randi() % platform_pool.size()
 	var platform = platform_pool[idx]
-	var spacing = 4 * 16
+	var spacing = 4 * 16 + (randi() % 2 * 16)
 	var width = prev_platform.get_node("Ground").get_used_rect().end.x * 16
 	var start = prev_platform.global_position.x + width + spacing
 	platforms.add_child(platform)
@@ -58,10 +58,11 @@ func spawn_platform():
 	platform_pool.remove(idx)
 	active_platforms.append(platform)
 	prev_platform = platform
+	Globals.score += 10
 
 func retire_platform(platform):
 	platform.disconnect("screen_exited", self, "retired_platform")
 	platform.disconnect("screen_entered", self, "spawn_platform")
 	active_platforms.erase(platform)
 	platform_pool.append(platform)
-	platforms.remove_child(platform)
+	platforms.call_deferred("remove_child", platform)

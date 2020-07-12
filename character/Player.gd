@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 signal killed()
 
-const MOVE_SPEED = 10.0 * 16
+const MOVE_SPEED = 16.0 * 16
 const HOOK_SPEED = 32.0 * 16
 const HOOK_ROTATION_SPEED = -PI * 1.5
 const MIN_HOOK_DISTANCE = 1.0 * 16

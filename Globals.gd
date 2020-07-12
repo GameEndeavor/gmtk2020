@@ -22,4 +22,4 @@ func _process(delta):
 
 func set_score(value):
 	score = value
-	emit_signal("score_updated")
+	emit_signal("score_updated", score)
