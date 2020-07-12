@@ -15,3 +15,5 @@ width = 4.0
 default_color = Color( 0.94902, 0.65098, 0.717647, 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+collision_mask = 17
+collide_with_areas = true
