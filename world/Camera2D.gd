@@ -1,6 +1,6 @@
 extends Camera2D
 
-const MAX_CAMERA_SPEED = 12 * 16
+const MAX_CAMERA_SPEED = 14 * 16
 const CAMERA_SPEED_DELTA = 0.25 * 16
 
 var camera_speed = 4 * 16

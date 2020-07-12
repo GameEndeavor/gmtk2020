@@ -8,28 +8,25 @@
 [node name="Platform" instance=ExtResource( 2 )]
 
 [node name="HookshotAnchor" parent="." index="0" instance=ExtResource( 3 )]
-position = Vector2( 56, 24 )
+position = Vector2( 56, 40 )
 
 [node name="HookshotAnchor2" parent="." index="1" instance=ExtResource( 3 )]
 position = Vector2( 40, 8 )
 
 [node name="HookshotAnchor3" parent="." index="2" instance=ExtResource( 3 )]
-position = Vector2( 136, 24 )
+position = Vector2( 136, 40 )
 
-[node name="MerryGoAnchor" parent="." index="3" instance=ExtResource( 1 )]
-position = Vector2( 232, 24 )
+[node name="HookshotAnchor4" parent="." index="3" instance=ExtResource( 3 )]
+position = Vector2( 232, 40 )
 
-[node name="HookshotAnchor4" parent="." index="4" instance=ExtResource( 3 )]
-position = Vector2( 232, 24 )
+[node name="MerryGoAnchor2" parent="." index="4" instance=ExtResource( 1 )]
+position = Vector2( 328, -64 )
 
-[node name="MerryGoAnchor2" parent="." index="5" instance=ExtResource( 1 )]
-position = Vector2( 328, -80 )
-
-[node name="OneWayPlatformLarge" parent="." index="6" instance=ExtResource( 4 )]
+[node name="OneWayPlatformLarge" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 272, 8 )
 
-[node name="Ground" parent="." index="7"]
+[node name="Ground" parent="." index="6"]
 tile_data = PoolIntArray( 3, 47, 196608, 4, 47, 196609, 5, 47, 196609, 6, 47, 196609, 7, 47, 196609, 8, 47, 196609, 9, 47, 196609, 10, 47, 196609, 11, 47, 196609, 12, 47, 196609, 13, 47, 196610, 20, 48, 3, 65556, 48, 65539, 131092, 48, 65539, 196608, 48, 196608, 196609, 48, 196609, 196610, 48, 196609, 196611, 48, 196609, 196612, 48, 196609, 196613, 48, 196609, 196614, 48, 196609, 196615, 48, 196609, 196616, 48, 196609, 196617, 48, 196609, 196618, 48, 196609, 196619, 48, 196609, 196620, 48, 196609, 196621, 48, 196609, 196622, 48, 196609, 196623, 48, 196609, 196624, 48, 196609, 196625, 48, 196609, 196626, 48, 196609, 196627, 48, 196609, 196628, 48, 196615 )
 
-[node name="Background" parent="." index="8"]
-tile_data = PoolIntArray( -327671, 1, 0, -327660, 0, 131072, -262124, 0, 131072, -196588, 0, 131072, -131067, 2, 0, -131052, 0, 131072, -65527, 0, 0, -65524, 0, 1, -65516, 0, 131072, 6, 0, 131072, 11, 0, 131072, 65538, 0, 131072, 65542, 0, 131072, 65547, 0, 131072, 131074, 0, 131072, 131075, 0, 131072, 131078, 0, 131072, 131080, 0, 131072, 131083, 0, 131072, 131086, 0, 131072 )
+[node name="Background" parent="." index="7"]
+tile_data = PoolIntArray( -327671, 1, 0, -131067, 2, 0, -65527, 0, 0, -65524, 0, 1 )
