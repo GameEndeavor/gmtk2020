@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://art/tileset/GrassTileset/tileset_GrassTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://art/tileset/BackgroundDetailTileset.tres" type="TileSet" id=2]
+
+[node name="Platform" type="Node2D"]
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -65530, 47, 0, -65529, 47, 1, -65528, 47, 1, -65527, 47, 2, 4, 47, 0, 5, 47, 1, 6, 47, 131078, 7, 47, 65537, 8, 47, 65537, 9, 47, 131077, 10, 47, 1, 11, 47, 2, 65536, 47, 196608, 65537, 47, 6, 65538, 47, 1, 65539, 47, 1, 65540, 47, 131078, 65541, 47, 65537, 65542, 47, 65537, 65543, 47, 65537, 65544, 47, 65537, 65545, 47, 65537, 65546, 47, 65541, 65547, 47, 196613, 65548, 47, 196610, 131073, 47, 131072, 131074, 47, 131073, 131075, 47, 131073, 131076, 47, 131073, 131077, 47, 131073, 131078, 47, 131073, 131079, 47, 131073, 131080, 47, 131073, 131081, 47, 131073, 131082, 47, 131074 )
+
+[node name="Background" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131065, 0, 0, -65534, 2, 0, -65526, 0, 0 )
