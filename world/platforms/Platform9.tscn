@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://art/tileset/GrassTileset/tileset_GrassTileset.tres" type="TileSet" id=1]
+[ext_resource path="res://art/tileset/BackgroundDetailTileset.tres" type="TileSet" id=2]
+[ext_resource path="res://world/OneWayPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://art/backgrounds/FrogPillar.png" type="Texture" id=5]
+[ext_resource path="res://world/MerryGoAnchor.tscn" type="PackedScene" id=6]
+
+[node name="Platform" type="Node2D"]
+
+[node name="Ground" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -131053, 48, 3, -65517, 48, 65539, 1, 48, 0, 2, 48, 2, 6, 48, 0, 7, 48, 1, 8, 48, 1, 9, 48, 1, 10, 48, 1, 11, 48, 1, 12, 48, 1, 13, 48, 1, 14, 48, 1, 15, 48, 1, 16, 48, 1, 17, 48, 1, 18, 48, 1, 19, 48, 131080, 20, 48, 1, 21, 48, 1, 22, 48, 2, 65537, 48, 65536, 65538, 48, 65538, 65542, 48, 65536, 65543, 48, 65537, 65544, 48, 65537, 65545, 48, 65537, 65546, 48, 65537, 65547, 48, 65537, 65548, 48, 65537, 65549, 48, 65537, 65550, 48, 65537, 65551, 48, 65537, 65552, 48, 65537, 65553, 48, 65537, 65554, 48, 65537, 65555, 48, 65537, 65556, 48, 65537, 65557, 48, 65537, 65558, 48, 65538, 131073, 48, 131072, 131074, 48, 131074, 131078, 48, 65536, 131079, 48, 65537, 131080, 48, 65541, 131081, 48, 131073, 131082, 48, 131073, 131083, 48, 131073, 131084, 48, 131073, 131085, 48, 131073, 131086, 48, 131073, 131087, 48, 131073, 131088, 48, 131073, 131089, 48, 131073, 131090, 48, 131073, 131091, 48, 131073, 131092, 48, 131073, 131093, 48, 131073, 131094, 48, 131074, 196614, 48, 65536, 196615, 48, 65537, 196616, 48, 65538, 262150, 48, 65536, 262151, 48, 65537, 262152, 48, 65538, 327680, 48, 0, 327681, 48, 1, 327682, 48, 1, 327683, 48, 1, 327684, 48, 1, 327685, 48, 1, 327686, 48, 131078, 327687, 48, 65537, 327688, 48, 65538, 393216, 48, 131072, 393217, 48, 131073, 393218, 48, 131073, 393219, 48, 131073, 393220, 48, 131073, 393221, 48, 131073, 393222, 48, 131073, 393223, 48, 131073, 393224, 48, 131074 )
+
+[node name="OneWayPlatform" parent="Ground" instance=ExtResource( 3 )]
+position = Vector2( 72, 48 )
+
+[node name="OneWayPlatform2" parent="Ground" instance=ExtResource( 3 )]
+position = Vector2( 72, 8 )
+
+[node name="MerryGoAnchor" parent="Ground" instance=ExtResource( 6 )]
+position = Vector2( 312, -40 )
+
+[node name="Background" type="TileMap" parent="."]
+z_index = -1
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -393206, -1610612736, 131072, -393205, -1610612736, 131072, -393204, -1610612736, 131072 )
+
+[node name="FrogPillar" type="Sprite" parent="."]
+position = Vector2( 152, -64 )
+z_index = -2
+texture = ExtResource( 5 )
+
+[node name="FrogPillar2" type="Sprite" parent="."]
+position = Vector2( 224, -64 )
+z_index = 1
+texture = ExtResource( 5 )
