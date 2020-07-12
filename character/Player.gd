@@ -7,22 +7,27 @@ const MIN_HOOK_DISTANCE = 1.0 * 16
 
 onready var body = $Body
 onready var collision = $CollisionShape2D
-onready var mouth = $Mouth
+onready var mouth = $Body/Mouth
 onready var state_machine = $StateMachine
+onready var animation_player = $AnimationPlayer
 
 onready var jump_velocity = PhysicsHelper.calculate_velocity_from_height(-Globals.PLAYER_JUMP_HEIGHT)
 var velocity := Vector2()
 var is_grounded := false
-var can_lick := true
+var is_licking := false
 var move_input
 var tongue = null
 var rotation_factor = 0.2
 var rotation_direction = 1
 var retraction_speed = 1.0 * 16
+var facing = 1
 	
 
 func _update_input():
 	move_input = -Input.get_action_strength("move_left") + Input.get_action_strength("move_right")
+	if move_input != 0:
+		facing = sign(move_input)
+		body.scale.x = facing
 
 func _update_h_velocity():
 	velocity.x = lerp(velocity.x, move_input * MOVE_SPEED, get_move_weight())
@@ -63,25 +68,24 @@ func jump():
 	velocity.y = jump_velocity
 
 func lick():
-	if can_lick:
+	if !is_licking:
 		tongue = preload("res://character/Tongue.tscn").instance()
-		add_child(tongue)
-		tongue.position = mouth.position
+		mouth.add_child(tongue)
 		tongue.launch((get_global_mouse_position() - mouth.global_position).normalized())
-		can_lick = false
+		set_is_licking(true)
 		tongue.connect("retracted", self, "_on_tongue_retracted")
 		tongue.connect("hooked", state_machine, "_on_Player_hooked")
 		tongue.connect("hooked", self, "_on_tongue_hooked")
 
 func _on_tongue_retracted():
 	tongue = null
-	can_lick = true
+	set_is_licking(false)
 
 func remove_tongue():
 	if tongue != null:
 		tongue.queue_free()
 		tongue = null
-		can_lick = true
+		set_is_licking(false)
 
 func _on_tongue_hooked():
 	var body = tongue.raycast.get_collider()
@@ -89,3 +93,7 @@ func _on_tongue_hooked():
 #		var displacement = body.global_position - mouth.global_position
 		
 	pass
+
+func set_is_licking(value):
+	is_licking = value
+	state_machine.update_animation()

@@ -68,10 +68,36 @@ func _get_transition(delta):
 					return states.jump
 
 func _enter_state(new_state, old_state):
-	pass
+	update_animation()
 
 func _exit_state(old_state, new_state):
 	pass
 
 func _on_Player_hooked():
 	set_state(states.hooked)
+
+func update_animation():
+	var animation = ""
+	if state == states.idle:
+		if !parent.is_licking:
+			animation = "idle"
+		else:
+			animation = "idle_bleb"
+	elif state == states.run:
+		if !parent.is_licking:
+			animation = "run"
+		else:
+			animation = "run_bleb"
+	elif [states.fall, states.jump].has(state):
+		if !parent.is_licking:
+			animation = "jump"
+		else:
+			animation = "jump_bleb"
+	elif state == states.hooked:
+		if parent.is_grounded:
+			animation = "idle_bleb"
+		else:
+			animation = "jump_bleb"
+	
+	if animation != "" && parent.animation_player.assigned_animation != animation:
+		parent.animation_player.play(animation)
